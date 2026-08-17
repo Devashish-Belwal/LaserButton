@@ -1,14 +1,11 @@
-import { useLayoutEffect, useRef, useState, type ReactElement } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 import "./LaserButton.css";
 
 export default function LaserButton({
   children,
   className = "",
   ...props
-}: {
-  children: ReactElement,
-  className: string
-}) {
+}: React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const rectRef = useRef<SVGRectElement>(null);
   const [perimeter, setPerimeter] = useState(0);
 
@@ -21,13 +18,21 @@ export default function LaserButton({
       }
     };
 
+    // Initial measurement
     updatePerimeter();
+
+    // NEW: Observe future size changes
+    const observer = new ResizeObserver(updatePerimeter);
+    observer.observe(rectRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
-  const gapLength = Math.max(0, perimeter - 60);
+  const beamLength = 60;
+  const gapLength = Math.max(0, perimeter - beamLength);
 
   const customProperties = {
-    "--laser-dasharray": `60px ${gapLength}px`,
+    "--laser-dasharray": `${beamLength}px ${gapLength}px`,
     "--laser-perimeter": `-${perimeter}px`,
   } as React.CSSProperties;
 
@@ -58,9 +63,7 @@ export default function LaserButton({
         />
       </svg>
 
-      <span className="laser-btn-content">
-        {children}
-      </span>
+      <span className="laser-btn-content">{children}</span>
     </button>
   );
 }
