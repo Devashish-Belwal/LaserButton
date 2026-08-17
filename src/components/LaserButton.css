@@ -27,27 +27,38 @@
   overflow: visible;
 }
 
-/* Faint border */
 .laser-track {
   fill: none;
   stroke: rgba(255, 255, 255, 0.1);
   stroke-width: 2px;
 }
 
-/* Short laser segment */
 .laser-beam {
   fill: none;
   stroke: #00f0ff;
   stroke-width: 2px;
   stroke-linecap: round;
 
-  /* NEW: 60px visible, 300px invisible */
   stroke-dasharray: 60px 300px;
 
   filter: drop-shadow(0 0 6px #00f0ff);
+
+  /* NEW */
+  animation: run-laser 2.5s linear infinite;
 }
 
 .laser-btn-content {
   position: relative;
   z-index: 1;
+}
+
+/* NEW */
+@keyframes run-laser {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -360px;
+  }
 }
