@@ -4,7 +4,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import "./LaserButton.css";
 
 export interface LaserButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -60,7 +59,75 @@ export const LaserButton = forwardRef<
       ...style,
     } as React.CSSProperties;
 
-    return (
+    return (<>
+      <style>
+        {
+          `.laser-btn {
+              position: relative;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+
+              padding: 12px 28px;
+              background-color: #0f172a;
+              color: #ffffff;
+
+              font-size: 1rem;
+              font-weight: 600;
+
+              border: none;
+              border-radius: 12px;
+
+              cursor: pointer;
+              outline: none;
+            }
+
+            .laser-svg {
+              position: absolute;
+              inset: 0;
+
+              width: 100%;
+              height: 100%;
+
+              pointer-events: none;
+              overflow: visible;
+            }
+
+            .laser-track {
+              fill: none;
+              stroke: rgba(255, 255, 255, 0.1);
+              stroke-width: 2px;
+            }
+
+            .laser-beam {
+              fill: none;
+              stroke: var(--laser-color, #00f0ff);
+              stroke-width: 2px;
+              stroke-linecap: round;
+
+              stroke-dasharray: var(--laser-dasharray);
+
+              filter: drop-shadow(0 0 6px var(--laser-color, #00f0ff));
+
+              animation: run-laser var(--laser-duration, 2.5s) linear infinite;
+            }
+
+            .laser-btn-content {
+              position: relative;
+              z-index: 1;
+            }
+
+            @keyframes run-laser {
+              from {
+                stroke-dashoffset: 0;
+              }
+
+              to {
+                stroke-dashoffset: var(--laser-perimeter);
+              }
+            }`
+        }
+      </style>
       <button
         ref={ref}
         className={`laser-btn ${className}`.trim()}
@@ -90,9 +157,8 @@ export const LaserButton = forwardRef<
 
         <span className="laser-btn-content">{children}</span>
       </button>
-    );
+    </>);
   }
 );
 
-// Step 11
 LaserButton.displayName = "LaserButton";
