@@ -29,12 +29,19 @@
 
 .laser-beam {
   fill: none;
-  stroke: #00f0ff;
+  stroke: var(--laser-color, #00f0ff);
   stroke-width: 2px;
   stroke-linecap: round;
+
   stroke-dasharray: var(--laser-dasharray);
-  filter: drop-shadow(0 0 6px #00f0ff);
-  animation: run-laser 2.5s linear infinite;
+
+  filter: drop-shadow(0 0 6px var(--laser-color, #00f0ff));
+
+  animation:
+    run-laser
+    var(--laser-duration, 2.5s)
+    linear
+    infinite;
 }
 
 .laser-btn-content {
@@ -46,6 +53,7 @@
   from {
     stroke-dashoffset: 0;
   }
+
   to {
     stroke-dashoffset: var(--laser-perimeter);
   }

@@ -1,7 +1,7 @@
 "use client";
 
-// import { LaserButton } from "@/components/LaserButton";
-import LaserButton from "@/components/LaserButton";
+import { LaserButton } from "@/components/LaserButton";
+// import LaserButton from "@/components/LaserButton";
 import { useEffect, useState } from "react";
 
 const PORTRAIT_RATIO = 900 / 1600;   // 0.5625
