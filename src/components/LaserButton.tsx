@@ -1,9 +1,44 @@
-import React from 'react'
+import type { ReactElement } from "react";
+import "./LaserButton.css";
 
-const LaserButton = () => {
+ export default function LaserButton({
+  children,
+  className = "",
+  ...props
+}:{
+  children: ReactElement,
+  className: string
+}) {
   return (
-    <div>LaserButton</div>
-  )
-}
+    <button
+      className={`laser-btn ${className}`.trim()}
+      {...props}
+    >
+      <svg className="laser-svg" aria-hidden="true">
+        {/* Static border */}
+        <rect
+          x="1"
+          y="1"
+          width="calc(100% - 2px)"
+          height="calc(100% - 2px)"
+          rx="12"
+          className="laser-track"
+        />
 
-export default LaserButton
+        {/* Laser layer (still static) */}
+        <rect
+          x="1"
+          y="1"
+          width="calc(100% - 2px)"
+          height="calc(100% - 2px)"
+          rx="12"
+          className="laser-beam"
+        />
+      </svg>
+
+      <span className="laser-btn-content">
+        {children}
+      </span>
+    </button>
+  );
+}

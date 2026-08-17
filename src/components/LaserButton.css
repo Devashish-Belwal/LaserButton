@@ -1,0 +1,50 @@
+.laser-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 28px;
+
+  background: #0f172a;
+  color: white;
+
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+  outline: none;
+}
+
+.laser-svg {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+  overflow: visible;
+}
+
+/* Static border */
+.laser-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 2px;
+}
+
+/* Second layer: currently identical except for color */
+.laser-beam {
+  fill: none;
+  stroke: #00f0ff;
+  stroke-width: 2px;
+  stroke-linecap: round;
+
+  filter: drop-shadow(0 0 6px #00f0ff);
+}
+
+.laser-btn-content {
+  position: relative;
+  z-index: 1;
+}

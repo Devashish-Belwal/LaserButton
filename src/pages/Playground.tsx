@@ -47,7 +47,9 @@ export default function Playground() {
         {/* Your app */}
         <div>
           <LaserButton
+            className=""
           >
+            <div>hello</div>
           </LaserButton>
         </div>
       </main>
