@@ -39,11 +39,10 @@
   stroke-width: 2px;
   stroke-linecap: round;
 
-  stroke-dasharray: 60px 300px;
+  stroke-dasharray: var(--laser-dasharray);
 
   filter: drop-shadow(0 0 6px #00f0ff);
 
-  /* NEW */
   animation: run-laser 2.5s linear infinite;
 }
 
@@ -52,13 +51,12 @@
   z-index: 1;
 }
 
-/* NEW */
 @keyframes run-laser {
   from {
     stroke-dashoffset: 0;
   }
 
   to {
-    stroke-dashoffset: -360px;
+    stroke-dashoffset: var(--laser-perimeter);
   }
 }
