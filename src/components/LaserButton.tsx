@@ -25,7 +25,7 @@ import "./LaserButton.css";
           className="laser-track"
         />
 
-        {/* Laser layer (still static) */}
+        {/* Laser segment */}
         <rect
           x="1"
           y="1"
