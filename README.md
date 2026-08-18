@@ -8,8 +8,6 @@ No external CSS file. Just copy **one `.tsx` file** into your project and use it
 
 ## Preview
 
-> Replace these placeholders with your own GIFs.
-
 ### Default Animation
 
 ![Default Demo](./assets/gifs/default-demo.gif)
@@ -64,7 +62,7 @@ That's it. No CSS files, no additional setup.
 ## Option 2 — Clone the Repository
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/Devashish-Belwal/LaserButton
 ```
 
 The component lives here:
@@ -173,13 +171,13 @@ The repository also includes a small playground used to demonstrate the componen
 
 # Demo Placeholders
 
-| Demo | Replace With |
+| Demo |              |
 |------|--------------|
-| Default animation | `./assets/gifs/default-demo.gif` |
-| Responsive resize | `./assets/gifs/responsive-demo.gif` |
-| Custom colors | `./assets/gifs/customization-demo.gif` |
-| Beam length comparison | `./assets/gifs/beam-length-demo.gif` |
-| Animation speed comparison | `./assets/gifs/speed-demo.gif` |
+| Default animation |![Default Demo](./assets/gifs/default-demo.gif)
+| Responsive resize |![Default Demo](./assets/gifs/responsive-demo.gif)
+| Custom colors |![Default Demo](./assets/gifs/customization-demo.gif)
+| Beam length comparison |![Default Demo](./assets/gifs/beam-length-demo.gif)
+| Animation speed comparison |![Default Demo](./assets/gifs/speed-demo.gif)
 
 ---
 
